@@ -1,0 +1,14 @@
+services:
+  # Define o serviço da nossa API
+  api:
+    # Instrui o Compose a construir a imagem a partir do Dockerfile
+    # no diretório atual ('.')
+    build: .
+    container_name: api
+    # Mapeia a porta 8000 do host para a porta 8000 do contêiner
+    ports:
+      - "8000:8000"
+    # monta o diretório atual onde está o código em /app dentro do contêiner, isso é bom para desenvolvimento,
+    #pois as mudanças são refletidas automaticamente no contêiner, devido ao reload
+    volumes:
+      - .:/app
